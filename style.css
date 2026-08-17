@@ -2406,3 +2406,193 @@ button {
         transition-duration: .01ms !important;
     }
 }
+
+
+
+/* =========================================================
+   MOBILE HORIZONTAL OVERFLOW FIX
+   ========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+main,
+section,
+footer,
+header {
+    max-width: 100%;
+}
+
+/* Prevent grid/flex children from forcing extra width */
+.hero-grid > *,
+.about-grid > *,
+.why-grid > *,
+.contact-grid > *,
+.services-grid > *,
+.jobs-grid > *,
+.process-grid > *,
+.testimonial-grid > *,
+.footer-main > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Prevent images from ever exceeding their parent */
+img,
+iframe {
+    max-width: 100%;
+}
+
+/* Keep animated elements inside the viewport */
+.reveal,
+.reveal-left,
+.reveal-right {
+    max-width: 100%;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .hero-grid,
+    .about-grid,
+    .why-grid,
+    .contact-grid {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-visual,
+    .hero-content,
+    .about-images,
+    .about-content,
+    .why-image,
+    .why-content,
+    .contact-info,
+    .contact-form-wrapper {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Remove horizontal reveal movement on mobile.
+       This prevents the initial right-side overflow. */
+    .reveal-right {
+        transform: translateY(35px);
+    }
+
+    .reveal-left {
+        transform: translateY(35px);
+    }
+
+    .reveal.visible,
+    .reveal-left.visible,
+    .reveal-right.visible {
+        transform: translateY(0);
+    }
+
+    /* Hero image must stay inside viewport */
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-image-wrapper > img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Floating cards stay inside screen */
+    .card-success {
+        left: 8px;
+    }
+
+    .card-jobs {
+        right: 8px;
+    }
+
+    /* Prevent decorative pseudo element from creating overflow */
+    .hero-image-wrapper::before {
+        left: 0;
+        right: 0;
+        inset-inline: 0;
+    }
+
+    .about-images {
+        width: 100%;
+    }
+
+    .about-main-image {
+        max-width: 90%;
+    }
+
+    .experience-card {
+        max-width: 160px;
+    }
+
+    .quote-card {
+        max-width: calc(100% - 20px);
+    }
+
+    .cta-box {
+        max-width: 100%;
+    }
+
+    .contact-form {
+        max-width: 100%;
+    }
+}
+
+
+/* EXTRA SMALL DEVICES */
+
+@media (max-width: 560px) {
+
+    .container {
+        width: calc(100% - 32px);
+        max-width: calc(100% - 32px);
+    }
+
+    .hero,
+    .section,
+    .cta-section,
+    .contact,
+    .services,
+    .process,
+    .testimonials,
+    .opportunities,
+    .footer {
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    .floating-card {
+        max-width: calc(100% - 16px);
+    }
+
+    .card-success {
+        left: 0;
+    }
+
+    .card-jobs {
+        right: 0;
+    }
+
+    .hero-buttons,
+    .cta-buttons {
+        width: 100%;
+    }
+
+    .btn {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        max-width: 100%;
+    }
+}
